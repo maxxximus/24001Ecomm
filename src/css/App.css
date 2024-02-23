@@ -5,19 +5,15 @@
 
 
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: rgba(224, 211, 211, 0.358);
-height:fit-content;
-  display: flex;
- 
-  align-items: center;
-  justify-content: center;
+
+display: grid;
+grid-template-areas: "logo logo" "main basket";
+
+grid-template-columns: 90% 10%;
+
   font-size: calc(10px + 2vmin);
 
   
@@ -36,10 +32,12 @@ height:fit-content;
   }
 }
 #main{
+  background-color:azure;
+  grid-area: main;
   display: grid;
   align-content:start;
   margin: 0 auto;
-  width: 85%;
+  width: 97%;
   height: 100vh;
 
   
@@ -55,8 +53,9 @@ height:fit-content;
 
 
 #basket{
+  grid-area: basket;
   background-color: blueviolet;
-  grid-area: a;
+
   background-color: rgb(13, 13, 240);
   font: 50.5%/1 "Droid Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana,
   Arial, Helvetica, sans-serif;
@@ -65,7 +64,13 @@ height:fit-content;
 
   
     height: 100vh;
-width: 260px;
 
 
+
+}
+#logo{
+  grid-area: logo;
+  width: 100%;
+  height: 80px;
+  background-color: bisque;
 }

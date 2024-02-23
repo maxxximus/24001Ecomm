@@ -20,8 +20,9 @@ function App() {
   return (
     <div>
       <header className="App-header">
+        <div id="logo"></div>
         <div id="main">
-          {shirts.slice(0, 10).map((option, index) => {
+          {shirts.slice(0, 6).map((option, index) => {
          
               return <Shirt format={option.formatPrice()} label={option} ind={index}  cart={basket} action={setBasket}/>;
             
