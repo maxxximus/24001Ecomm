@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./css/App.css";
+import Shirt from "./Components/Shirt";
+import Item from "./Model/Item";
+import { useState } from "react";
+import { def } from "./Data/definitions";
+import Basket from "./Components/Basket";
 
 function App() {
+  const [shirts, setShirts] = useState(def);
+  const [page, setPage] = useState();
+  
+  const [basket, setBasket] = useState([])
+
+
+
+  // {false  && (<div id="smily"></div>)}
+
+ 
+
   return (
-    <div className="App">
+    <div>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div id="main">
+          {shirts.slice(0, 10).map((option, index) => {
+         
+              return <Shirt format={option.formatPrice()} label={option} ind={index}  cart={basket} action={setBasket}/>;
+            
+          })}
+        </div>
+        <div id="basket"><Basket cart1={basket} /></div>
       </header>
     </div>
   );
 }
 
-export default App;
+export { App };
