@@ -1,0 +1,15 @@
+.basket-image{
+height:40px;
+}
+
+.basket-small{
+
+    width:50px;
+    height: 60px;
+}
+#total-basket{
+
+    display: flex;
+    flex-direction: row;
+
+}

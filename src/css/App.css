@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
   color: black;
 }
@@ -48,29 +48,381 @@ grid-template-columns: 90% 10%;
  
 
 
-  gap: 10px;
+  gap: 30px;
 }
 
 
 #basket{
   grid-area: basket;
-  background-color: blueviolet;
+
 
   background-color: rgb(13, 13, 240);
-  font: 50.5%/1 "Droid Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana,
-  Arial, Helvetica, sans-serif;
  
-  font-size: 45px;
-
-  
-    height: 100vh;
-
-
-
 }
 #logo{
   grid-area: logo;
   width: 100%;
   height: 80px;
   background-color: bisque;
+}
+
+.main{
+
+  width: 200px;
+  height: 265px;
+  background-color: rgba(235, 174, 62, 0.986);
+  border:2px black groove;
+  border-radius: 10px;
+  padding: 5px;
+}
+.main:hover{
+  cursor: pointer;
+  box-shadow: inset 0 0 8px #000;
+  transform: scale(0.995);
+}
+#image{
+  width: 190px;
+  display: flex;
+}
+
+#image p{
+  font-size: 1.2em;
+  margin: 40px 5px;
+}
+
+img{
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 5px;
+
+}
+
+h2{
+  margin: 0;
+  font-size: 1rem;
+}
+
+
+
+button{
+
+  background-size: 23px;
+  border-radius: 10px; 
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 30px;
+  position: relative;
+  background-color: rgb(13, 13, 240);
+  color: rgb(6, 242, 6);;
+
+}
+
+
+button:hover{
+  background-color: rgb(6, 242, 6);
+  color: black;
+
+}
+#profile{
+  display: grid;
+  
+height: 120px;
+   
+grid-template-areas: "." "." ".";
+
+
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+/* ------------------------------------------- */
+
+
+
+
+/* 
+
+
+.App-header {
+  background-color: rgba(21, 232, 102, 0.797);
+
+display: grid;
+grid-template-areas: "logo" "main" "footer";
+
+grid-template-rows: 8rem 75% ;
+
+
+  font-size: calc(10px + 2vmin);
+  height:max-content;
+}
+
+#basket{
+
+  flex: 0 0 500px;
+  grid-area: basket;
+
+
+
+  background-color: rgb(13, 13, 240);
+ 
+}
+#logo{
+  display: flex;
+  grid-area: logo;
+  width: 100%;
+  justify-content: center;
+
+  background-color: bisque;
+}
+#mult-shirts{
+ 
+  background-color: coral;
+  display: grid;
+  grid-template-areas: "main full" ;
+  
+}
+#main{
+  grid-area: main;
+  background-color:azure;
+
+  display: grid;
+
+width: 400px;
+
+  grid-template-columns: repeat(auto-fill, 14rem);
+  padding: 10px;
+  gap: 20px;
+}
+#footer{
+  grid-area: footer;
+  background-color: brown;
+  width: 100%;
+
+} */
+
+/* ----- flip card ---------------- */
+.flip-card {
+  background-color: transparent;
+  width: 800px;
+  height: 900px;
+
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* -------------------------------------------------------- */
+
+
+
+.App-header {
+  background-color: rgba(224, 211, 211, 0.269);
+
+display: grid;
+grid-template-areas: "logo logo" "left right" ;
+grid-template-rows: 90px;
+
+
+
+grid-template-columns:50% 50%;
+
+  
+}
+
+
+#logo{
+grid-area: logo;
+
+  background-color: bisque;
+}
+#mult-shirts{
+  grid-area: multi;
+  background-color: rgb(80, 89, 255);
+
+
+
+
+  
+}
+
+#footer{
+  grid-area: footer;
+  background-color: chartreuse;
+} 
+
+
+#left{
+
+  grid-area: left;
+  display: grid;
+  align-content:start;
+  margin: 0 auto;
+  width: 97%;
+  height: 90vh;
+
+  
+
+
+  grid-template-columns: repeat(auto-fill, 9rem);
+  padding: 10px;
+ 
+gap:26px;
+}
+
+#right{
+  background-color: aquamarine;
+
+    grid-area: right;
+
+    
+
+
+
+
+
+}
+
+.full-image{
+ height: 500px;
+  filter: drop-shadow(rgb(94, 86, 86) 0.8rem 1rem 10px);
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+#left img{
+  
+  height:8rem;
+  width: 7rem;
+}
+
+#logo{
+  display: flex;
+  grid-area: logo;
+  width: 100%;
+  justify-content: center;
+
+  background-color: rgb(235, 175, 62);
+}
+#basket{
+
+height:100px;
+width: 700px;
+  grid-area: basket;
+
+
+
+}
+
+.container {
+  justify-content: space-between;
+  flex-direction: column;
+  height: 50vh;
+  display: flex;
+  padding: 10px;
+}
+.container .btn-holder {
+  justify-content:center;
+  position: relative;
+}
+.container .btn-holder button {
+  padding: 10px 25px;
+  background: blue;
+  font-size: 16px;
+  border: none;
+  color: #fff;
+position: relative;
+ left: 160px;
+ top: 20px;
+
+    width:50%;
+    border: 1px solid grey;
+border-radius: 5px;
+  
+}
+
+.container .btn-holder button:hover{
+
+  cursor: pointer;
+background-color: rgb(5, 148, 225);
+border: 1px solid grey;
+border-radius: 5px;
+  
+
 }
