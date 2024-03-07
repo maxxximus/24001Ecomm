@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import '../css/Shirt.css'
-import '../css/Basket.css'
+import '../css/App.css'
+
+import { Cart, CartCheckFill } from "react-bootstrap-icons/dist";
+
 function Basket(props) {
 
-    const [cartTotal, setcartTotal] = useState(0)
+   
 
     // class BasketModel {
     //     constructor(design, size, itemcode, price, quantity) {
@@ -25,45 +27,54 @@ function Basket(props) {
 
 
       
-  useEffect(() => {
+//   useEffect(() => {
 
-    
-    props.cart1.map((option, index) => {
-        setcartTotal(cartTotal + option.totalPrice())
-        })
+
+//         setcartTotal(cartTotal + option.totalPrice())
+        
 
  
-  }, [cartTotal]);
+//   }, [cartTotal]);
 
 
 
 
-
-// const total = 
-//     props.cart.reduce((acc,el,)=>{acc+=el.price}, 0) 
-// console.log(total);
 
     return (
     
     
     <>
-        <span>Basket</span><span>Total fir all{cartTotal}</span>
-        <div className='basket'>
+
+  
+  
+       
+        <div onClick={()=>{props.action2(-2)}}  className='basket no-mobile'>
+
+
+        { props.cartItems  == 0 ?  
+    <Cart size={35} style={{margin:"5px"}} /> :   
+      <CartCheckFill style={{margin:"5px"}}  size={35} />}
+
+        <div className='basket-font-20'>Basket Total: {props.cartTotal1 ?  ` £${props.cartTotal1} (${props.cartItems})`: `£0.00`} </div>
+            <ul>
+            
      {props.cart1.map((option, index) => {
        
         
 
          return (
          <>
-         <span> {option.price}  ({option.quantity})</span>
-         <span >Totalpooo: {option.totalPrice()}   </span>
+         <li> {option.itemcode} ({option.size}) x {option.quantity}  £{option.price} ({option.totalPrice()}) </li>
+         {/* <span >Totalpooo: {option.totalPrice()}   </span> */}
+         {/* <span >items: {option.totalItems()}   </span> */}
          
-         <img className='basket-image' src={option.image} />
+    
          {/* <span>{option.totalPrice()}</span> */}
          </>
          )
        
-     })}<span>total basketuuu</span>
+     })}
+     </ul>
      </div>
 
      

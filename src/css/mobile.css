@@ -1,0 +1,86 @@
+/* 
+
+@media (max-width: 800px) {
+
+    .no-mobile{
+        display: none;
+    }
+
+
+    .App-header {
+        background-color: rgba(220, 16, 16, 0.269);
+        
+      
+      display: grid;
+      grid-template-areas: "logo " "right " "left " ;
+      grid-template-columns:100%;
+   grid-template-rows: 200px 650px 400px;
+    
+      }
+      
+
+      #right{
+  
+        grid-area: right;
+    
+    
+    }
+
+    .full-image{
+        width: 400px;
+        height: 500px;
+        object-fit: contain;
+       
+    
+      
+        margin: 0 auto;
+      }
+      
+
+}
+
+@media (min-width: 801px) {
+
+    .App-header {
+        background-color: rgba(224, 211, 211, 0.269);
+        
+      
+      display: grid;
+      grid-template-areas: "logo" "left" "right";
+      grid-template-rows: 0px;
+      
+      
+      
+
+      
+        
+      }
+      
+
+
+      #right{
+  
+        grid-area: right;
+    
+    
+    
+    }
+
+    .full-image{
+        width: 500px;
+        height: 600px;
+        object-fit: contain;
+       
+ 
+      
+        margin: 0 auto;
+      }
+      
+
+
+
+}
+  
+
+
+   */
