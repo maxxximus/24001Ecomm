@@ -73,5 +73,15 @@ function splitToNChunks(array, n) {
   return result;
 }
 
-const cc = splitToNChunks(v, 4)
-console.log(cc[2])
+
+const removeFromCart = (array, itemcode) =>{
+
+const rr =  array.filter((el) => {return el.itemcode !== itemcode})
+console.log("remove", rr);
+
+
+}
+// const cc = splitToNChunks(v, 4)
+// console.log(cc[2])
+
+ removeFromCart(v, "00004")

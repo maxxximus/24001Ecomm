@@ -5,19 +5,20 @@ import Shirt from "./Components/Shirt";
 import Item from "./Model/Item";
 import { useEffect, useState, useCallback } from "react";
 import { def } from "./Data/definitions";
-// import Basket from "./Components/Basket";
-// import BasketModel from "./Model/BasketModel";
-// import Fullinfo from "./Components/Fullinfo";
-// import gg from "./tshirt.png";
-// import Home from "./Components/Home";
-// import Contact from "./Components/Fullbasket.";
+import Basket from "./Components/Basket";
+import BasketModel from "./Model/BasketModel";
+
+import gg from "./tshirt.png";
+
+
 import Navcart from "./Components/Navcart";
 import Leftpanel from "./Components/Leftpanel";
-import Fullbasket from "./Components/Fullbasket.";
+import Fullbasket from "./Components/Fullbasket..jsx"
+import Contact from "./Components/Contact.jsx";
 
-// import { CartCheckFill } from "react-bootstrap-icons/dist";
+import { CartCheckFill } from "react-bootstrap-icons/dist";
 
-// import Spinner from 'react-bootstrap/Spinner';
+import Spinner from 'react-bootstrap/Spinner';
 import Fullshirt from "./Components/Fullshirt.jsx";
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
   const [page, setPage] = useState(-1);
   const [multipage, setMultipage] = useState(1);
   const [paginationSize, setPaginationSize] = useState(5);
-  let [slicedata, setSlicedata] = useState(splitToNChunks([...def], paginationSize )[0]);  // sets initial pagination1 to 12 
+  let [slicedata, setSlicedata] = useState(splitToNChunks([...def], paginationSize )[0]);  
   // const [toggleBasket, setToggleBasket] = useState(true);
 
   const [basket, setBasket] = useState([]);
@@ -76,11 +77,6 @@ setCartItems(tQuantity)
 }, [basket])
 
 
-  function itemcode(code) {
-    return function (element) {
-      return element.itemcode === code;
-    };
-  }
 
 
   function Rightpanel() {
@@ -91,15 +87,28 @@ setCartItems(tQuantity)
           action={addToBasket}
           shirts={shirts}
           cartItems={cartItems}
-          
- 
+          setPage={setPage}
           cart={basket}
           index={page}
-    
-        
         />
       </div>
     );
+  }
+
+
+  const removeFromCart = (itemcode) =>{
+
+    const rr =  basket.filter((el) => {return el.itemcode !== itemcode})
+    setBasket(rr)
+    
+    
+    }
+
+    
+  function itemcode(code) {
+    return function (element) {
+      return element.itemcode === code;
+    };
   }
 
   const addToBasket = (a) => {
@@ -152,19 +161,23 @@ setCartItems(tQuantity)
 const renderSwitch = (param) => {
   switch (param) {
     case -1:
-      return < Leftpanel page={callbackpage} 
-      sizeDataSet={lenDataSet}
-
-
-      callback={callback} next={next}
-        multipage={multipage} slicedata={slicedata} 
-        page1={paginationSize}/> 
+      return < Leftpanel
+                page={callbackpage} 
+                sizeDataSet={lenDataSet}
+                callback={callback} 
+                next={next}
+                multipage={multipage} 
+                slicedata={slicedata} 
+                page1={paginationSize}/> 
     case -2:
       return  <Fullbasket 
-      basket={basket}  
- 
-      cartTotal1={cartTotal1}
-      cartItems={cartItems} /> 
+                  basket={basket}  
+                  removeFromCart={removeFromCart}
+                  cartTotal1={cartTotal1}
+                  cartItems={cartItems}
+                  callback={callback}  /> 
+    case -3:
+                    return < Contact />
     default:
       return <Rightpanel /> 
   }
@@ -187,8 +200,13 @@ const renderSwitch = (param) => {
       <header className="App-header">
    
     
-    
-    <div className="header"> < Navcart basket={basket} action={callback} cartTotal1={cartTotal1} cartItems={cartItems}/> </div>
+    {/* <div className="debugging">DEBUGGING: page:{page} pagination:{paginationSize} multipage:{multipage}</div> */}
+          <div className="header"> < Navcart 
+                                    basket={basket} 
+                                    action={callback}
+                                    cartTotal1={cartTotal1} 
+                                    cartItems={cartItems}/> 
+          </div>
 
 
 {renderSwitch(page)}

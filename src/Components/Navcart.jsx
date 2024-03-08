@@ -19,14 +19,6 @@ function Navcart(props){
     return(
   <>
  
-      
- 
-        
-  
-       
-
-
-
       <Navbar className="nav-mini" style={{display:"flex", zIndex: "-1", backgroundColor: "blue"  ,flexDirection:"row"}}expand="lg"  >
       <Container>
      
@@ -34,16 +26,16 @@ function Navcart(props){
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link onClick={()=>{props.action(-1)}} href="#home">Home</Nav.Link>
-            <Nav.Link onClick={()=>{props.action(-2)}} href="#link">Cart</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">  
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+            <Nav.Link onClick={()=>{props.action(-2)}} href="#cart">Basket</Nav.Link>
+            <NavDropdown title="Links" id="basic-nav-dropdown">  
+            
+              <NavDropdown.Item href="#info">
+                Company information
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={()=>{props.action(-3)}}href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>{props.action(-3)}}href="#contact">Contact us</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+              <NavDropdown.Item href="#login">
+                Login
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
@@ -51,7 +43,10 @@ function Navcart(props){
       </Container>
     </Navbar>
 
-    <Basket action2={props.action} cart1={props.basket} cartTotal1={props.cartTotal1} cartItems={props.cartItems}/>
+    <Basket action2={props.action} 
+    cart1={props.basket} 
+    cartTotal1={props.cartTotal1}
+     cartItems={props.cartItems}/>
   
   
     </>

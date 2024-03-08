@@ -11,7 +11,13 @@ import Stack from 'react-bootstrap/Stack';
 function Shirt(props) {
 
 
-    // parent - App.js
+    // parent - leftpanel.js
+
+
+    // props  label={option}
+    //       key={option.itemcode}
+    //       ind={index}
+    //       action={props.callback}
     
     // class Item {
     //   constructor(design, size, image, itemcode, price) {
@@ -34,7 +40,7 @@ function Shirt(props) {
 
 <Card key={props.label.itemcode} className="shirt-hover" onClick={()=>{props.action(props.ind)}} >
       <Card.Img    style={{  objectFit: "cover", height : "100%", width: "100%"
- }} src={props.label.image} />
+ }} src={props.label.image} alt={props.label.design} />
       <Card.Body className="d-flex flex-column justify-content-end ">
         
         <ListGroup   variant="flush">

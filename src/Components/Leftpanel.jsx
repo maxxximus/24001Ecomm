@@ -46,13 +46,14 @@ for (let number = 1 ; number <= pages; number++) {
 </span>
       <div className="nav-pagin"><Pagination>{items}</Pagination>
       
-<select onChange={(e) => {props.page(e.target.value)}} name="page" id="page" form="pageform">
+{/* <select onChange={(e) => {props.page(e.target.value)}} name="page" id="page" form="pageform">
 <option value="">Items per page</option>
 
   <option value="5">5</option>
   <option value="10">10</option>
   <option value="20">20</option>
-</select></div> 
+</select> */}
+</div> 
         <div className="left-items">
         
         {props.slicedata.map((option, index) => {

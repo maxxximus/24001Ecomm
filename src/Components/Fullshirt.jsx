@@ -26,15 +26,13 @@ const [nosubmit, setNosubmit] = useState("")
 
 
 
-// const submitToCart = () => {
-//   if (size !== "") {
-
-//      props.action( [...props.cart, new BasketModel(
-//       props.label.design, props.label.size, props.label.itemcode, props.label.price, 1, props.label.image)])
- 
-//   }
-// };
-
+          // props : label={slicedata[page] ? slicedata[page] : shirts[1]}  // 
+                  // action={addToBasket}
+                  // shirts={shirts}
+                  // cartItems={cartItems}
+                  // cart={basket}
+                  // setPage
+                  // index={page}
 
 
 const submitCart = () =>{ 
@@ -111,8 +109,8 @@ else{
 
         <div className='cart-checkout'>
 
-
-<h2 className='full-price'>{props.label.formatPrice()}</h2>
+     <h2>{props.label.design}</h2>
+<h3 >{props.label.formatPrice()}</h3>
 
 <p>{props.index}</p>
 
@@ -155,7 +153,7 @@ else{
 <Button  variant="outline-success" size="lg" onClick={submitCart}>Add to cart</Button></div>
 <p className='warning'>{nosubmit}</p>
 
-<p className='success'>{props.cartItems == 0 ? "" : 
+<p className='success' onClick={()=> {props.setPage(-2)}} >{props.cartItems == 0 ? "" : 
 props.cartItems == 1 ?`You have ${props.cartItems} item in your basket:` : 
 `You have ${props.cartItems} items in your basket:`}</p>
 

@@ -1,25 +1,25 @@
-
-
-
-
-.nav-mini{
+.nav-mini {
   background-color: aqua;
   width: 40%;
 }
 
-
+.debugging {
+  position: absolute;
+  background-color: darkgoldenrod;
+  height: 100px;
+  top: 100px;
+  left: 50px;
+  width: 200px;
+  z-index: 140;
+}
 .App-header {
-
-
-
-display: grid;
-grid-template-areas: "logo " "right " "left " ;
-grid-template-columns:100%;
-grid-template-rows: 120px ;
-
+  display: grid;
+  grid-template-areas: "logo " "right " "left ";
+  grid-template-columns: 100%;
+  grid-template-rows: 120px;
 }
 
-.header{
+.header {
   background-color: rgb(100, 237, 100);
   height: 100px;
 
@@ -31,106 +31,86 @@ grid-template-rows: 120px ;
   margin: 0 auto;
   background-color: rgb(221, 255, 220);
   z-index: 100;
-  
 }
 
-.left-items{
-
+.left-items {
   display: grid;
-  align-content:start;
+  align-content: start;
   margin: 0 auto;
   width: 100%;
   height: 90vh;
-
-
   grid-template-columns: repeat(auto-fit, 15rem);
 
-
   padding: 10px;
- 
-gap:26px;
+
+  gap: 26px;
 
   grid-area: left;
 }
 
-.right-details{
+.right-details {
   background-color: darkcyan;
   grid-area: right;
 }
 
-
-.shirt-hover:hover{
+.shirt-hover:hover {
   cursor: pointer;
 
   transform: scale(1.005);
-
-
 }
-.shirt-hover{
+.shirt-hover {
   width: 16rem;
   border-radius: 10px;
 }
 
-.basket ul{
+.basket ul {
   list-style: none;
-  width:60%;
+  width: 60%;
 
   margin: 0;
   overflow-x: visible;
   overflow-y: clip;
-
-
 }
 
-.basket li{
-
+.basket li {
   font-size: 0.9em;
   margin: 0;
-
 }
-.basket{
+.basket {
   background-color: chartreuse;
 
   display: flex;
   width: 100%;
-
-
 }
-.basket:hover{
+.basket:hover {
   cursor: pointer;
 }
-.cart-checkout{
+.cart-checkout {
   grid-area: checkout;
   padding: 20px;
 
-  width:500px;
-  height:400px;
+  width: 500px;
+  height: 400px;
 }
-.side-by-side{
+.side-by-side {
   display: grid;
-  grid-template-areas: ". checkout " ;
+  grid-template-areas: ". checkout ";
 }
 
-.warning{
+.warning {
   font-weight: 400;
   color: red;
 }
-.basket-image-sm{
+.basket-image-sm {
   width: 50px;
-
 }
 
-
-
-.carousel-image{
-  width:600px;
+.carousel-image {
+  width: 600px;
   height: auto;
-  object-fit:cover;
-
+  object-fit: cover;
 }
-.nav-pagin{
-
-
+.nav-pagin {
   display: block;
 
   margin: 0;
@@ -138,102 +118,105 @@ gap:26px;
   height: 90px;
 }
 
-.nav-container{
-
+.nav-container {
   display: flex;
   flex-direction: column;
   /* background-color: blue; */
   margin: 0 auto;
   width: 90%;
-  height:400px;
+  height: 400px;
 }
-.basket-font-20{
+.basket-font-20 {
   padding-top: 10px;
 }
-#right{
-  width:80%;
+#right {
+  width: 80%;
   margin: 0 auto;
 }
 
-.warning{
-
+.warning {
   background-color: red;
   color: white;
   border-radius: 5px;
-
 }
 
-.success{
-
+.success {
   background-color: rgb(0, 255, 140);
   color: black;
   border-radius: 5px;
   font-weight: 400;
 }
 
+.success:hover {
+  cursor: pointer;
+}
+
+
+
+
+
 
 
 /* 
 ---------Typewriter---------------------- */
 
-
 .type {
-
-
-
-
-
   font-size: 5em;
   line-height: 2.6em;
   color: white;
   font-weight: 800;
 
-
   position: absolute;
   top: 0;
   left: 0;
-  width:100%;    
-  height:100%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-
- 
-
-
 }
 .type > span {
-  display:grid;
+  display: grid;
   overflow: hidden;
-  height:2em;
+  height: 2em;
 }
 .type span span {
-  width:0%;
-  max-width:max-content;
+  width: 0%;
+  max-width: max-content;
   overflow: hidden;
-  height:2em;
-  word-break:break-all;
-  animation:
-    c 0.5s infinite steps(1),  
-    t 2s linear infinite alternate,
+  height: 2em;
+  word-break: break-all;
+  animation: c 0.5s infinite steps(1), t 2s linear infinite alternate,
     m 12s steps(3) infinite;
 }
 .type span span:before {
-  content:" ";
-  display:inline-block;
+  content: " ";
+  display: inline-block;
   height: 1.1em;
 }
-@keyframes t{
-  90%,100% {width:100%}
+@keyframes t {
+  90%,
+  100% {
+    width: 100%;
+  }
 }
-@keyframes c{
-  0%,100%{box-shadow:5px 0 0 #0000}
-  50%    {box-shadow:5px 0 0 white  }
+@keyframes c {
+  0%,
+  100% {
+    box-shadow: 5px 0 0 #0000;
+  }
+  50% {
+    box-shadow: 5px 0 0 white;
+  }
 }
-@keyframes m{
-  100% {transform:translateY(-300%)}
+@keyframes m {
+  100% {
+    transform: translateY(-300%);
+  }
 }
+
+
 
 
 
@@ -242,70 +225,55 @@ gap:26px;
 
 /* mobile friendly -------------------------------------- */
 @media (max-width: 800px) {
-
-  .no-mobile{
-      display: none;
+  .no-mobile {
+    display: none;
   }
-  .nav-container{
-
+  .nav-container {
     display: flex;
     flex-direction: column;
     /* background-color: blue; */
     margin: 0 auto;
     width: 100%;
-    height:400px;
+    height: 400px;
   }
 
+  .carousel-image {
+    width: 80vw;
 
-  .carousel-image{
-    width:80vw;
-
-    object-fit:cover;
-  
+    object-fit: cover;
   }
 
-  .side-by-side{
+  .side-by-side {
     display: grid;
-    grid-template-areas: ". " "checkout " ;
+    grid-template-areas: ". " "checkout ";
   }
-  
 
-
-  .basket{
+  .basket {
     background-color: rgb(255, 0, 47);
-    width:90%;
+    width: 90%;
     display: flex;
-  
   }
-  .cart-checkout{
-    background-color: darkcyan;
-    width:90%;
-    height:400px;
+  .cart-checkout {
+    height: 400px;
   }
-    
-  .shirt-hover{
+
+  .shirt-hover {
     width: 100vw;
     border-radius: 10px;
   }
 
-
-  .left-items{
-  
-    
+  .left-items {
     background-color: aqua;
 
     display: grid;
-    align-items:flex-end;
+    align-items: flex-end;
     margin: 0 auto;
 
     height: 90vh;
     grid-template-columns: repeat(auto-fit, 100vw);
-  
-  
-    padding: 10px;
-   
 
-  
+    padding: 10px;
+
     grid-area: left;
   }
 
@@ -314,22 +282,15 @@ gap:26px;
     line-height: 2em;
     color: white;
     font-weight: 800;
-  
-  
+
     position: absolute;
     top: -100px;
     left: 0;
-    width:100%;    
-    height:100%;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-  
-   
-  
-  
   }
-  
-
 }

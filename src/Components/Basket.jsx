@@ -5,6 +5,14 @@ import { Cart, CartCheckFill } from "react-bootstrap-icons/dist";
 
 function Basket(props) {
 
+    // parent Navcart
+
+
+    // props  action2={props.action} 
+    // cart1={props.basket} 
+    // cartTotal1={props.cartTotal1}
+    //  cartItems={props.cartItems}
+
    
 
     // class BasketModel {
@@ -64,7 +72,7 @@ function Basket(props) {
 
          return (
          <>
-         <li> {option.itemcode} ({option.size}) x {option.quantity}  £{option.price} ({option.totalPrice()}) </li>
+         <li> {option.itemcode} ({option.size}) x {option.quantity}: £{option.totalPrice()} </li>
          {/* <span >Totalpooo: {option.totalPrice()}   </span> */}
          {/* <span >items: {option.totalItems()}   </span> */}
          
