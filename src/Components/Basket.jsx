@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../css/App.css'
 
-import { Cart, CartCheckFill } from "react-bootstrap-icons/dist";
+import {Trash, Cart, CartCheckFill } from "react-bootstrap-icons/dist";
 
 function Basket(props) {
 
@@ -56,7 +56,7 @@ function Basket(props) {
   
   
        
-        <div onClick={()=>{props.action2(-2)}}  className='basket no-mobile'>
+        <div onClick={()=>{props.action2(-2)}}  className='basket'>
 
 
         { props.cartItems  == 0 ?  

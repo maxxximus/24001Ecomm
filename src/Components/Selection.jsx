@@ -10,22 +10,23 @@ export default function Selection(props) {
 
 
 
-    const [shirts, setShirts] = useState(def);
 
 
   return (
-    <div>
+    <div style={{marginTop:"100px"}}>
+        <h5>You might be interested in...</h5>
 
 
-<div className="left-items">
+<div className="selection">
         
-        {shirts.map((option, index) => {
+        {props.label.map((option, index) => {
           return (
             <Shirt
               label={option}
               key={option.itemcode}
-              ind={index}
-              action={props.callback}
+              ind={-4}
+              index={index}
+          action={props.action}
             />
           
           );

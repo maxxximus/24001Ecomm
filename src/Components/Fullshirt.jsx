@@ -1,18 +1,14 @@
-import { useState } from 'react';
-import { Stack, Badge } from "react-bootstrap";
+import { useState, useEffect} from 'react';
+import { Stack, Badge, Alert, Button } from "react-bootstrap";
 
 
 import '../css/App.css'
 import BasketModel from '../Model/BasketModel'
 import gg from '../tshirt.png'
-import gyy from '../7168bMNpdsL._AC_SL1000_.jpg'
+
 import Carousel from 'react-bootstrap/Carousel';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import ListGroup from 'react-bootstrap/ListGroup';
-import Image from 'react-bootstrap/Image';
-import Form from 'react-bootstrap/Form';
-import { TypeH4 } from 'react-bootstrap-icons';
+
+import Selection from './Selection';
 
 
 
@@ -23,23 +19,46 @@ function Fullshirt(props) {
 
 const [size, setSize] = useState("")
 const [nosubmit, setNosubmit] = useState("")
+const [loading, setLoading] = useState(false); // used by add to cart button
+
+      // parent app.js 
+      // props:
+      // label={slicedata[page] ? slicedata[page] : shirts[1]} 
+      // labelselect={randomSelection} // 
+      // action={addToBasket}
+      // shirts={shirts}
+      // cartItems={cartItems}
+      // setPage={setPage}
+      // cart={basket}
+      // index={page}
+
+        
+  useEffect(() => {
+
+    window.scrollTo(0, 0)  // ensures re-render scrolls to top of page
 
 
+    function simulateNetworkRequest() {
+      return new Promise((resolve) => setTimeout(resolve, 1000)); // adds loading text to cart button
+    }
 
-          // props : label={slicedata[page] ? slicedata[page] : shirts[1]}  // 
-                  // action={addToBasket}
-                  // shirts={shirts}
-                  // cartItems={cartItems}
-                  // cart={basket}
-                  // setPage
-                  // index={page}
+    if (loading) {
+      simulateNetworkRequest().then(() => {
+        setLoading(false);
+        submitCart()
+      });
+    }
+
+  }, [loading, props.index]);
+
+  const handleClick = () => setLoading(true);
 
 
 const submitCart = () =>{ 
   if (size !== "") 
-  {   props.action( new BasketModel(
+  { props.action( new BasketModel(
   props.label.design, size, props.label.itemcode+size, props.label.price, 1, props.label.image));
-  
+  setNosubmit("")
 }
 else{
   setNosubmit("Please select a size")
@@ -52,7 +71,7 @@ else{
 
     return (
 
-
+      <div id="right">
     
 
 <div className='side-by-side'>
@@ -61,7 +80,7 @@ else{
 
 
 
-<Carousel interval={null} variant='dark' style={{ width:"600px",border: "1px solid black", borderRadius: '10px',  }} >
+<Carousel interval={null} variant='dark' style={{ width:"600px", borderRadius: '10px',  }} >
       <Carousel.Item>
         <img  
           className="carousel-image"
@@ -112,7 +131,7 @@ else{
      <h2>{props.label.design}</h2>
 <h3 >{props.label.formatPrice()}</h3>
 
-<p>{props.index}</p>
+
 
 <p>Item code:{props.label.itemcode}</p>
 <p>Size selected: {size? size: "None selected"}</p>
@@ -148,15 +167,27 @@ else{
 
 </Form.Select> */}
 
+
+
+
+
+
  <div  style={{margin: "40px 0"}} className="d-grid gap-2">
 
-<Button  variant="outline-success" size="lg" onClick={submitCart}>Add to cart</Button></div>
+
+<Button     disabled={loading}  variant="outline-success" size="lg"   onClick={!loading ? handleClick : null}>
+{loading && size  ? 'Adding…' : 'Add to Basket'}</Button></div>
 <p className='warning'>{nosubmit}</p>
 
 <p className='success' onClick={()=> {props.setPage(-2)}} >{props.cartItems == 0 ? "" : 
 props.cartItems == 1 ?`You have ${props.cartItems} item in your basket:` : 
 `You have ${props.cartItems} items in your basket:`}</p>
 
+<Button  onClick={()=> {props.setPage(-1)}}  href="#home">Continue shopping</Button>
+{/* <Alert variant="success">
+
+          <Alert.Link onClick={()=> {props.setPage(-1)}}  href="#home">continue shopping</Alert.Link>
+        </Alert> */}
 
 </div>
 
@@ -164,7 +195,10 @@ props.cartItems == 1 ?`You have ${props.cartItems} item in your basket:` :
            
 
 </div>
+<div className='random-selection'>    < Selection label={props.labelselect} action={props.action1}/></div>
 
+
+</div>
     );
     
 }

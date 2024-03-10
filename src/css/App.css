@@ -1,8 +1,17 @@
 .nav-mini {
   background-color: aqua;
-  width: 40%;
+  width: 60%;
+}
+.bin-hover:hover{
+  cursor: pointer;
 }
 
+.cart-button{
+  width: 100%;
+  background-color: chartreuse;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
 .debugging {
   position: absolute;
   background-color: darkgoldenrod;
@@ -20,7 +29,7 @@
 }
 
 .header {
-  background-color: rgb(100, 237, 100);
+  background-color:rgb(249,249, 250);
   height: 100px;
 
   grid-area: logo;
@@ -29,7 +38,7 @@
   justify-content: center;
   width: 100%;
   margin: 0 auto;
-  background-color: rgb(221, 255, 220);
+  
   z-index: 100;
 }
 
@@ -52,11 +61,18 @@
   background-color: darkcyan;
   grid-area: right;
 }
+.selection{
 
+
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap:70px;
+}
 .shirt-hover:hover {
   cursor: pointer;
+transform: scale(0.995);
 
-  transform: scale(1.005);
 }
 .shirt-hover {
   width: 16rem;
@@ -77,7 +93,7 @@
   margin: 0;
 }
 .basket {
-  background-color: chartreuse;
+background-color:rgb(249,249, 250);
 
   display: flex;
   width: 100%;
@@ -97,12 +113,9 @@
   grid-template-areas: ". checkout ";
 }
 
-.warning {
-  font-weight: 400;
-  color: red;
-}
+
 .basket-image-sm {
-  width: 50px;
+  width: 70px;
 }
 
 .carousel-image {
@@ -111,11 +124,12 @@
   object-fit: cover;
 }
 .nav-pagin {
-  display: block;
+  display: flex;
 
   margin: 0;
-  background-color: beige;
-  height: 90px;
+  background-color: rgb(181, 181, 176);
+  height: 70px;
+  gap: 20px;
 }
 
 .nav-container {
@@ -153,9 +167,20 @@
 
 
 
+.full-basket{
+display: flex;
+gap: 40px;
+flex-wrap: wrap;
+margin:0 auto;
+width: 90%;
 
+}
 
+.small-table{
 
+  width: 30%;
+  height:200px;
+}
 
 /* 
 ---------Typewriter---------------------- */
@@ -249,7 +274,7 @@
   }
 
   .basket {
-    background-color: rgb(255, 0, 47);
+ 
     width: 90%;
     display: flex;
   }
@@ -263,10 +288,9 @@
   }
 
   .left-items {
-    background-color: aqua;
-
+  
     display: grid;
-    align-items: flex-end;
+    align-items:normal;
     margin: 0 auto;
 
     height: 90vh;
@@ -293,4 +317,15 @@
     flex-direction: column;
     align-items: center;
   }
+  .selection{
+
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap:2px;
+
+  }
+
+  
 }
