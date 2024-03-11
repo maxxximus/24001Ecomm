@@ -72,7 +72,7 @@ function Basket(props) {
 
          return (
          <>
-         <li> {option.itemcode} ({option.size}) x {option.quantity}: £{option.totalPrice()} </li>
+         <li><img className='nav-image30' src={option.image} /> ({option.size}) x {option.quantity}: £{option.totalPrice()} </li>
          {/* <span >Totalpooo: {option.totalPrice()}   </span> */}
          {/* <span >items: {option.totalItems()}   </span> */}
          

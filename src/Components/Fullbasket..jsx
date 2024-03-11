@@ -30,7 +30,7 @@ function Fullbasket(props) {
     
     <div className="full-basket">
 
-      <Table striped={true} hover style={{ width: "60%" }}>
+      <Table striped={true} style={{width:"60%", marginTop:"50px" }}  hover >
       <thead>
       <tr>
       <th  colSpan={9}>Your basket</th>
@@ -90,8 +90,8 @@ function Fullbasket(props) {
           </tr>
         </tbody>
       </Table>
-<div className="small-table">
-      <Table    bordered style={{ height: "250px" }}>
+
+      <Table    striped style={{ height: "300px", width:"30%", marginTop:"50px" }}>
         <thead>
           <tr>
             <th  colSpan={2}>
@@ -117,13 +117,22 @@ function Fullbasket(props) {
 
           <tr>
             <td colSpan={2}>
-              <button style={{border:"none",height:'40px'}} className="cart-button">Continue securely</button>
+              <button  style={{height:'40px'}} className="cart-button-gn">Continue to secure checkout</button>
+  
+            </td>
+
+
+          </tr>
+
+          <tr>
+          <td colSpan={2}>
+              <button  style={{height:'40px'}}  onClick={()=> {props.setPage(-1)}}  className="cart-button-grey">Continue shopping</button>
   
             </td>
           </tr>
         </tbody>
       </Table>
-</div>
+
 
 
       {/* <Selection callback={props.callback}/> */}

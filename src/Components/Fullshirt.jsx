@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react';
-import { Stack, Badge, Alert, Button } from "react-bootstrap";
+import { Stack, Badge, Alert, Button, Nav } from "react-bootstrap";
 
 
 import '../css/App.css'
@@ -106,24 +106,6 @@ else{
 
 
 
-    {/* <Form style={{backgroundColor: "grey"}}>
-      {['radio'].map((type) => (
-        <div key={`default-${type}`} className="mb-3">
-          <Form.Check // prettier-ignore
-            type={type}
-            id={`default-${type}`}
-            label={`default ${type}`}
-          />
-
-          <Form.Check
-            disabled
-            type={type}
-            label={`disabled ${type}`}
-            id={`disabled-default-${type}`}
-          />
-        </div>
-      ))}
-    </Form> */}
 
 
         <div className='cart-checkout'>
@@ -183,7 +165,19 @@ else{
 props.cartItems == 1 ?`You have ${props.cartItems} item in your basket:` : 
 `You have ${props.cartItems} items in your basket:`}</p>
 
-<Button  onClick={()=> {props.setPage(-1)}}  href="#home">Continue shopping</Button>
+<Nav  className="justify-content-start"   bg="dark" activeKey="/#home">
+        <Nav.Item >
+          <Nav.Link  variant="pills"  onClick={()=> {props.setPage(-1)}}href="/#home">Continue shopping</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link  onClick={()=> {props.setPage(-2)}} href="/#basket">Go to basket</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link  onClick={()=> {props.setPage(-3)}} >Contact us</Nav.Link>
+        </Nav.Item>
+       
+      </Nav>
+
 {/* <Alert variant="success">
 
           <Alert.Link onClick={()=> {props.setPage(-1)}}  href="#home">continue shopping</Alert.Link>
@@ -195,7 +189,10 @@ props.cartItems == 1 ?`You have ${props.cartItems} item in your basket:` :
            
 
 </div>
-<div className='random-selection'>    < Selection label={props.labelselect} action={props.action1}/></div>
+<div className='random-selection'>    
+  < Selection 
+                                        label={props.labelselect} 
+                                        action={props.action1}/></div>
 
 
 </div>

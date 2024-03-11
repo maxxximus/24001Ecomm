@@ -46,9 +46,9 @@ function App() {
   const [cartTotal1, setcartTotal1] = useState(0);
   const [cartItems, setCartItems] = useState(0);
 
-  console.log("bggggggggg", shirts);
 
-  function randomDisplay(array) {
+
+  function randomDisplay(array) {  // generates 3 random items to display in Selection comp
     let result = [];
     for (let i = 3; i > 0; i--) {
       var item = Math.floor(Math.random() * array.length);
@@ -136,7 +136,7 @@ function App() {
 
   const newsort = sortArray(shirts, sorting)
   setSortedArray(newsort)
-  console.log("weeee", sortedArray);
+
 
   }, [sorting]);
 
@@ -219,6 +219,7 @@ function App() {
             cartTotal1={cartTotal1}
             cartItems={cartItems}
             callback={callback}
+            setPage={setPage}
           />
         );
       case -3:
