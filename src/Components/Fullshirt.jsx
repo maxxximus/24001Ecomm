@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react';
-import { Stack, Badge, Alert, Button, Nav } from "react-bootstrap";
+import { Stack, Badge, Alert, Button, Nav, Accordion, Tabs, Tab } from "react-bootstrap";
 
 
 import '../css/App.css'
@@ -9,6 +9,8 @@ import gg from '../tshirt.png'
 import Carousel from 'react-bootstrap/Carousel';
 
 import Selection from './Selection';
+
+import ListGroup from 'react-bootstrap/ListGroup';
 
 
 
@@ -110,7 +112,8 @@ else{
 
         <div className='cart-checkout'>
 
-     <h2>{props.label.design}</h2>
+     <h1><span className='h1-brand'>{props.label.design}</span>
+     <span className='h1-item'>{props.label.itemname}</span></h1>
 <h3 >{props.label.formatPrice()}</h3>
 
 
@@ -165,23 +168,39 @@ else{
 props.cartItems == 1 ?`You have ${props.cartItems} item in your basket:` : 
 `You have ${props.cartItems} items in your basket:`}</p>
 
-<Nav  className="justify-content-start"   bg="dark" activeKey="/#home">
+
+
+{/* <div  style={{margin: "40px 0"}} className="d-grid gap-2">
+
+<Button variant="outline-secondary" size="lg"  >Continue shopping</Button></div> */}
+<div style={{height:"200px", marginTop:"50px"}}>
+      <Tabs
+      tabClassName='text-dark'
+      defaultActiveKey="contact"
+      id="uncontrolled-tab-example"
+      className="mb-3"
+    >
+      <Tab eventKey="Details" title="Details">
+      {props.label.details}
+      </Tab>
+      <Tab eventKey="Returns" title="Returns">
+    <p>You can now return your online order in a few easy steps.Select your preferred tracked returns service. We have print at home, paperless and collection options available. You have 28 days to return your order from the date it’s delivered. Exclusions apply.</p>
+      </Tab>
+      <Tab   eventKey="contact" title="Links..." >
+      <Nav  className="justify-content-start"   bg="dark" activeKey="/#home">
         <Nav.Item >
-          <Nav.Link  variant="pills"  onClick={()=> {props.setPage(-1)}}href="/#home">Continue shopping</Nav.Link>
+          <Nav.Link  variant="pills"  onClick={()=> {props.setPage(-1)}}href="/#home">Back to shopping</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link  onClick={()=> {props.setPage(-2)}} href="/#basket">Go to basket</Nav.Link>
         </Nav.Item>
-        <Nav.Item>
-          <Nav.Link  onClick={()=> {props.setPage(-3)}} >Contact us</Nav.Link>
-        </Nav.Item>
+       
        
       </Nav>
-
-{/* <Alert variant="success">
-
-          <Alert.Link onClick={()=> {props.setPage(-1)}}  href="#home">continue shopping</Alert.Link>
-        </Alert> */}
+      </Tab>
+    </Tabs>
+    </div>
+    
 
 </div>
 

@@ -1,32 +1,23 @@
 import "./css/App.css";
 
 import "bootstrap/dist/css/bootstrap.css";
-import Shirt from "./Components/Shirt";
-import Item from "./Model/Item";
+
 import { useEffect, useState, useCallback } from "react";
 import { def } from "./Data/definitions";
-import Basket from "./Components/Basket";
-import BasketModel from "./Model/BasketModel";
-
-import gg from "./tshirt.png";
 
 import Navcart from "./Components/Navcart";
 import Leftpanel from "./Components/Leftpanel";
 import Fullbasket from "./Components/Fullbasket..jsx";
 import Contact from "./Components/Contact.jsx";
 
-import { CartCheckFill } from "react-bootstrap-icons/dist";
-
-import Spinner from "react-bootstrap/Spinner";
 import Fullshirt from "./Components/Fullshirt.jsx";
-import Selection from "./Components/Selection.jsx";
+
 
 function App() {
-  // const [, updateState] = useState();
-  // const forceUpdate = useCallback(() => updateState({}), []);
+
 
   const lenDataSet = def.length;
-  console.log("rrrrrr", lenDataSet);
+
   const [shirts, setShirts] = useState(def); // holds entire dataset
   const [page, setPage] = useState(-1); // initial state is rendering Leftpanel
   const [multipage, setMultipage] = useState(1);
@@ -42,13 +33,17 @@ function App() {
   let [sortedArray, setSortedArray] = useState([]);
   // let [selectedItem, setSelectedItem] = useState([]);
 
-
   const [cartTotal1, setcartTotal1] = useState(0);
   const [cartItems, setCartItems] = useState(0);
 
-
-
-  function randomDisplay(array) {  // generates 3 random items to display in Selection comp
+  /**
+   *  generates 3 random items to display in Selection comp
+   *
+   * @param {array}
+   * @returns {array}
+   */
+  function randomDisplay(array) {
+    // generates 3 random items to display in Selection comp
     let result = [];
     for (let i = 3; i > 0; i--) {
       var item = Math.floor(Math.random() * array.length);
@@ -56,6 +51,13 @@ function App() {
     }
     return result;
   }
+
+  /**
+   *  generates slice of full recordset dependent on pagination size
+   *
+   * @param {array}
+   * @returns {array}
+   */
 
   function splitToNChunks(array, n) {
     let chunkSize = Math.ceil(array.length / n);
@@ -66,39 +68,25 @@ function App() {
     return result;
   }
 
-  const cc = splitToNChunks([...shirts], paginationSize);
-  console.log("qqqq", cc[0]);
-
-
-
-  // function itemcode(code) {
-  //   return function (element) {
-  //     return element.itemcode === code;
-  //   };
-  // }
-  
+  /**
+   *  generates 1 object from itemcode coupled with itemcode()
+   *
+   * @param {string} a
+   * @returns {array}
+   */
   const findItem = (a) => {
     const zz = shirts.findIndex(itemcode(a));
-  let result = []
+    let result = [];
     if (zz !== -1) {
-     console.log("ddddd", shirts[zz]); 
-     result.push(shirts[zz])
-   return result
-  
-    }else{
+      result.push(shirts[zz]);
+      return result;
+    } else {
       console.log("not");
     }
   };
 
-
-
-  
-
-
-
-
-
-
+  // sets cart total and number of items in cart
+  // fires on change of basket state
   useEffect(() => {
     let tQuantity = basket.reduce(
       // Total number off items in basket
@@ -116,33 +104,37 @@ function App() {
     setCartItems(tQuantity);
   }, [basket]);
 
-
-
-
   useEffect(() => {
+    /**
+     *  generates array of objects based on sort term (brand)
+     * and adds to state sortedArray
+     *
+     * @param {array}
+     * @param {string} term
+     * @returns {array}
+     */
 
-    function  sortArray(array, term){
+    function sortArray(array, term) {
       let result = [];
       array.map((option, index) => {
         if (option.design === term) {
           result.push(option);
         }
-      
       });
-    
+
       return result;
-    };
-    
+    }
 
-  const newsort = sortArray(shirts, sorting)
-  setSortedArray(newsort)
-
-
+    const newsort = sortArray(shirts, sorting);
+    setSortedArray(newsort);
   }, [sorting]);
 
-
-
-
+  /**
+   *  removes item from cart by excluding item from new array and setting array to cart
+   *
+   * @param {string} itemcode
+   * @returns {array}
+   */
   const removeFromCart = (itemcode) => {
     const rr = basket.filter((el) => {
       return el.itemcode !== itemcode;
@@ -150,12 +142,26 @@ function App() {
     setBasket(rr);
   };
 
+  /**
+   *  closure used by add/remove from cart to find if item code matches
+   *
+   * @param {string} code
+   * @returns {boolean}
+   */
+
   function itemcode(code) {
     return function (element) {
       return element.itemcode === code;
     };
   }
 
+  /**
+   *  adds to basket - if item in basket increase quantity by 1 if not
+   * add new item to existing array from basket
+   *
+   * @param {object} a
+   *
+   */
   const addToBasket = (a) => {
     const zz = basket.findIndex(itemcode(a.itemcode));
 
@@ -163,36 +169,60 @@ function App() {
       basket[zz].quantity += 1;
       setBasket([...basket]);
     } else {
-      // let newItem = new BasketModel("Mike", "M", "67888", 44.90, 1)
-      // updateQuantity("67888", newItem)
-
       setBasket([...basket, a]);
     }
   };
+
+  /**
+   *  sets current page based on itemcode of product or -1 for all items, -2 for basket
+   *
+   * @param {*} index
+   */
   function callback(index) {
     setPage(index);
   }
 
+  /**
+   * sets pagination size
+   *
+   * @param {integer} index
+   */
   function callbackpage(index) {
     setPaginationSize(index);
   }
+
+  /**
+   *  sets sorting based on brand
+   *
+   * @param {string} term
+   */
 
   function sortitems(term) {
     setSorting(term);
   }
 
+  /**
+   * used by pagination to splice full recordset into chunks based on pagination size
+   * and put new slice in Slicedata
+   *
+   * @param {integer} first
+   */
   function next(first) {
     setMultipage(first);
     let z = splitToNChunks([...def], paginationSize)[first - 1];
     setSlicedata(z);
-    console.log("sliec", z);
   }
 
-  // const Routes = {
-  //   "-3": () =>  <Rightpanel /> ,
-  //   "/home": () => <Home />,
-
-  // };
+  /**
+   *  renders current page based on page state
+   *  -1 which renders home page with items listed (Leftpanel)
+   *  -2 is fullbasket
+   * -3 is contact
+   * all others are default and renders Fullshirt based on itemcode
+   *
+   * @param {*} param
+   * @returns {object}
+   */
 
   const renderSwitch = (param) => {
     switch (param) {
@@ -202,11 +232,11 @@ function App() {
             page={callbackpage}
             shirts={shirts}
             setSorting={sortitems}
-            sizeDataSet={sorting ? sortedArray.length :shirts.length}
+            sizeDataSet={sorting ? sortedArray.length : shirts.length}
             callback={callback}
             next={next}
             multipage={multipage}
-            slicedata={sorting ? sortedArray :slicedata}
+            slicedata={sorting ? sortedArray : slicedata}
             page1={paginationSize}
           />
         );

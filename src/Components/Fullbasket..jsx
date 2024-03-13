@@ -33,7 +33,7 @@ function Fullbasket(props) {
       <Table striped={true} style={{width:"60%", marginTop:"50px" }}  hover >
       <thead>
       <tr>
-      <th  colSpan={9}>Your basket</th>
+      <th  colSpan={9}>Your basket: {props.cartItems} items</th>
       </tr>
       </thead>
         <thead>
@@ -55,7 +55,7 @@ function Fullbasket(props) {
                 <td>{index + 1} </td>
                 <td>
                   {" "}
-                  <img className="basket-image-sm" src={option.image} />
+                  <img  className="basket-image-sm" src={option.image} />
                 </td>
                 <td>{option.design} </td>
                 <td>{option.itemcode} </td>
@@ -78,7 +78,7 @@ function Fullbasket(props) {
           })}
 
           <tr>
-            <td>{props.cartItems} items</td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -117,7 +117,7 @@ function Fullbasket(props) {
 
           <tr>
             <td colSpan={2}>
-              <button  style={{height:'40px'}} className="cart-button-gn">Continue to secure checkout</button>
+              <button  style={{height:'40px'}} className="cart-button-gn">Secure checkout</button>
   
             </td>
 

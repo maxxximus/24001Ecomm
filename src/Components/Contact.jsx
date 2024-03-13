@@ -1,5 +1,5 @@
 import '../css/App.css'
-import Form from 'react-bootstrap/Form';
+import {Form,Button} from 'react-bootstrap/';
 
 
 
@@ -27,7 +27,7 @@ function Contact(props) {
     return (
 
 
-        <Form style={{width: "50%", margin:"0 auto"}}>
+        <Form style={{width: "50%", margin:"100px auto"}}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="name@example.com" />
@@ -36,6 +36,10 @@ function Contact(props) {
           <Form.Label>Your enquiry</Form.Label>
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
+        
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
       </Form>
 
     );

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import '../css/App.css'
 
-import {Trash, Cart, CartCheckFill } from "react-bootstrap-icons/dist";
+import {Cart, CartCheckFill} from "react-bootstrap-icons/dist";
+import Button from "react-bootstrap/Button";
+
 
 function Basket(props) {
 
@@ -60,8 +62,8 @@ function Basket(props) {
 
 
         { props.cartItems  == 0 ?  
-    <Cart size={35} style={{margin:"5px"}} /> :   
-      <CartCheckFill style={{margin:"5px"}}  size={35} />}
+    <Cart title={"Basket empty"} size={40} style={{marginTop:"12px"}} /> :   
+      <CartCheckFill title={"Items in Basket"} style={{marginTop:"12px"}}  size={40} />}
 
         <div className='basket-font-20'>Basket Total: {props.cartTotal1 ?  ` £${props.cartTotal1} (${props.cartItems})`: `£0.00`} </div>
             <ul>

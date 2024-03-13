@@ -6,12 +6,18 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import tshirt from '../tshirt2.png'
+import {HouseFill, EnvelopeFill, DoorOpenFill,BagCheckFill,Link45deg } from "react-bootstrap-icons/dist";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
 
 
 
 
 function Navcart(props){
 
+
+  const placement = "top"
 
 
 
@@ -30,16 +36,17 @@ function Navcart(props){
 
 
 
-      
       <Container>
       <Navbar bg="light" data-bs-theme="light" collapseOnSelect expand="lg" className="bg-body-tertiary">
-        <Navbar.Brand  onClick={()=>{props.action(-1)}} href="#home"><h3>Mr.Tee</h3></Navbar.Brand>
+        <Navbar.Brand  onClick={()=>{props.action(-1)}} href="#home"><h1>Mr.Tee</h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link onClick={()=>{props.action(-1)}} href="#home">Home</Nav.Link>
-            <Nav.Link onClick={()=>{props.action(-2)}} href="#cart">Basket</Nav.Link>
-            <NavDropdown title="Links" id="basic-nav-dropdown">  
+            <Nav.Link onClick={()=>{props.action(-1)}}  className='ms-3' href="#home"><HouseFill title={"Home"} size={30}  /><p>Home</p></Nav.Link>
+            <Nav.Link onClick={()=>{props.action(-2)}}  className='ms-3' href="#cart"><BagCheckFill title={"Basket"}size={30} /><p>Basket</p></Nav.Link>
+            <Nav.Link onClick={()=>{props.action(-3)}}  className='ms-3' href="#contact"> <EnvelopeFill title={"Contact"} size={30}/><p>Contact</p></Nav.Link>
+            <Nav.Link onClick={()=>{props.action(-3)}}  className='ms-3 me-3' href="#login"><DoorOpenFill title={"Login"} size={30}/><p>Login</p></Nav.Link>
+            <NavDropdown className='mt-4'  title="Links" id="basic-nav-dropdown">  
             
               <NavDropdown.Item href="#info">
                 Company information

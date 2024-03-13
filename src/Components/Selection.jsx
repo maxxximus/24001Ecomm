@@ -13,9 +13,9 @@ export default function Selection(props) {
 
 
   return (
-    <div style={{marginTop:"100px"}}>
-        <h5>You might be interested in...</h5>
-
+<>
+      
+<div><h4>You might also be interested in...</h4></div>
 
 <div className="selection">
         
@@ -39,6 +39,6 @@ export default function Selection(props) {
 
 
 
-    </div>
+  </>
   )
 }

@@ -25,9 +25,9 @@ function Leftpanel(props){
 let active = props.multipage;
 let pagein = props.page1
 let lengthdata = props.sizeDataSet
-console.log("length", lengthdata);
+
 const pages = Math.ceil( lengthdata/ pagein)
-console.log("wwwwwwwww", props.shirts);
+
 
 
 
@@ -55,7 +55,7 @@ result.push(option.design)
 
 
 let unique_values = [...new Set(result)]; 
-console.log("unique", unique_values);
+
 
 
 
