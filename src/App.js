@@ -315,10 +315,10 @@ function App() {
       <header className="App-header">
         {/* products.map((el) => {return el.design}) */}
 
-        <div className="debugging">
+        {/* <div className="debugging">
           DEBUGGING:sorting: "{}" random:{randomIndex} page:{page} pagination:
           {paginationSize} multipage:{multipage}
-        </div>
+        </div> */}
         <div className="header">
           <Navcart
             basket={basket}
