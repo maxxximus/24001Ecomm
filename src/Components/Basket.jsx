@@ -62,8 +62,8 @@ function Basket(props) {
 
 
         { props.cartItems  == 0 ?  
-    <Cart title={"Basket empty"} size={40} style={{marginTop:"12px"}} /> :   
-      <CartCheckFill title={"Items in Basket"} style={{marginTop:"12px"}}  size={40} />}
+    <Cart title={"Basket empty"} size={40} style={{marginTop:"14px"}} /> :   
+      <CartCheckFill title={"Items in Basket"} style={{marginTop:"14px"}}  size={40} />}
 
         <div className='basket-font-20'>Basket Total: {props.cartTotal1 ?  ` £${props.cartTotal1} (${props.cartItems})`: `£0.00`} </div>
             <ul>

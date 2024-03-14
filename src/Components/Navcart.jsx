@@ -42,10 +42,10 @@ function Navcart(props){
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link onClick={()=>{props.action(-1)}}  className='ms-3' href="#home"><HouseFill title={"Home"} size={30}  /><p>Home</p></Nav.Link>
-            <Nav.Link onClick={()=>{props.action(-2)}}  className='ms-3' href="#cart"><BagCheckFill title={"Basket"}size={30} /><p>Basket</p></Nav.Link>
-            <Nav.Link onClick={()=>{props.action(-3)}}  className='ms-3' href="#contact"> <EnvelopeFill title={"Contact"} size={30}/><p>Contact</p></Nav.Link>
-            <Nav.Link onClick={()=>{props.action(-3)}}  className='ms-3 me-3' href="#login"><DoorOpenFill title={"Login"} size={30}/><p>Login</p></Nav.Link>
+            <Nav.Link onClick={()=>{props.action(-1)}}  className='ms-3' href="#home"><HouseFill className='ms-2' title={"Home"} size={26}  /><p>Home</p></Nav.Link>
+            <Nav.Link onClick={()=>{props.action(-2)}}  className='ms-3' href="#cart"><BagCheckFill className='ms-2'  title={"Basket"}size={26} /><p>Basket</p></Nav.Link>
+            <Nav.Link onClick={()=>{props.action(-3)}}  className='ms-3' href="#contact"> <EnvelopeFill  className='ms-3'title={"Contact"} size={26}/><p>Contact</p></Nav.Link>
+            <Nav.Link onClick={()=>{props.action(-3)}}  className='ms-3 me-3' href="#login"><DoorOpenFill className='ms-1' title={"Login"} size={26}/><p>Login</p></Nav.Link>
             <NavDropdown className='mt-4'  title="Links" id="basic-nav-dropdown">  
             
               <NavDropdown.Item href="#info">

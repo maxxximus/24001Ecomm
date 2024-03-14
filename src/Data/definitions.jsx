@@ -19,7 +19,7 @@ const def =
   new Item("Barbour", ["S", "M", "L"], 
   `https://www.houseoffraser.co.uk/images/imgzoom/55/55036001_xxl.jpg`, `00007`, 22.77 , "Thinking 1 Logo T Shirt"),
   new Item("Sunset", ["S", "M", "L"], 
-  `https://spikeleisurewear.co.uk/wp-content/uploads/2020/08/SL211.jpg`, `0008`, 34.67 ),
+  ``, `0008`, 34.67 ),
   new Item("Sunset", [ "M", "L"], 
   `https://www.houseoffraser.co.uk/images/imgzoom/55/55036001_xxl.jpg`, `00009`, 23.65 ),
   new Item("Bristol", ["S", "M", "L"], 
@@ -64,6 +64,8 @@ const def =
   `https://spikeleisurewear.co.uk/wp-content/uploads/2020/08/SL211.jpg`, `00029`, 22.67 ),
   new Item("Bristol", ["S", "M", "L"], 
   `https://i.ebayimg.com/images/g/-GIAAOSwj~BhGC8P/s-l1600.jpg`, `000030`, 22.67 ),
+  new Item("Barbour", [ "L","XL"],``,`000031`, 24.88, "pattern",
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ")
 
 
   

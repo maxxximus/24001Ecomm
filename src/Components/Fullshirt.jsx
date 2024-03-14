@@ -86,21 +86,21 @@ else{
       <Carousel.Item>
         <img  
           className="carousel-image"
-          src={props.label.image} 
+          src={props.label.image? props.label.image : `https://placehold.co/800x800`} 
           alt="First slide"
         />
         <Carousel.Caption>
-        {props.label.design} 
+        {props.label.image? props.label.design : `No image supplied`}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="carousel-image"
-          src={props.label.image} 
+          src={props.label.image? props.label.image : `https://placehold.co/800x800`} 
           alt="Second slide"
         />
         <Carousel.Caption>
-        {props.label.design} 
+        {props.label.image? props.label.design : `No image supplied`}
         </Carousel.Caption>
       </Carousel.Item>
       

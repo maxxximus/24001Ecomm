@@ -9,32 +9,75 @@ import Navcart from "./Components/Navcart";
 import Leftpanel from "./Components/Leftpanel";
 import Fullbasket from "./Components/Fullbasket..jsx";
 import Contact from "./Components/Contact.jsx";
-
+import { getCountries } from "./apiservice.js";
+import { resultcart } from "./localstorage.jsx";
 import Fullshirt from "./Components/Fullshirt.jsx";
-
+import BasketModel from "./Model/BasketModel.jsx";
 
 function App() {
-
+  const [products, setProducts] = useState([]);
 
   const lenDataSet = def.length;
 
   const [shirts, setShirts] = useState(def); // holds entire dataset
   const [page, setPage] = useState(-1); // initial state is rendering Leftpanel
-  const [multipage, setMultipage] = useState(1);
+  const [multipage, setMultipage] = useState(1); // used with pagination to render correct slice
   const [paginationSize, setPaginationSize] = useState(10); // number of Shirts rendered by Leftpanel
   let [slicedata, setSlicedata] = useState(
     splitToNChunks([...def], paginationSize)[0]
   );
 
-  const [basket, setBasket] = useState([]);
   let [randomSelection, setRandomSelection] = useState(randomDisplay([...def]));
   let [randomIndex, setRandomIndex] = useState(0);
   let [sorting, setSorting] = useState("");
   let [sortedArray, setSortedArray] = useState([]);
   // let [selectedItem, setSelectedItem] = useState([]);
 
-  const [cartTotal1, setcartTotal1] = useState(0);
-  const [cartItems, setCartItems] = useState(0);
+  const [cartTotal1, setcartTotal1] = useState(0); // total price of cart
+  const [cartItems, setCartItems] = useState(0); // number of items in cart
+
+  const [basket, setBasket] = useState(resultcart || []); // array of contents of basket
+  // mine working
+
+  //   useEffect(() => {
+
+  //     fetch("http://localhost:3002/item",  {
+  //       headers:{
+  //         accept: 'application/json',
+  //         'User-agent': 'learning app',
+  //       }
+  //     })
+  //       .then((response) => response.json())
+  //       .then((data) => setCountries(data.recordset[1007]))
+  //       .catch(error => {console.log("error",error)})
+  //   }, []);
+
+  // console.log("fffffffff",countries?countries:"hhhh");
+
+  async function fetchCountries() {
+    const result = await getCountries(1);
+    setProducts(result.recordset);
+  }
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
+
+  console.log("aaaaaaa", products);
+
+  useEffect(() => {
+    localStorage.setItem("basket", JSON.stringify(basket));
+  }, [basket]);
+
+  /**
+   *  displays random items to display in Fullshirt
+   * and sets randomSelection state - changes with new page state
+
+   */
+  useEffect(() => {
+    let v = randomDisplay([...shirts]);
+    setRandomSelection(v);
+  }, [page]);
 
   /**
    *  generates 3 random items to display in Selection comp
@@ -43,7 +86,6 @@ function App() {
    * @returns {array}
    */
   function randomDisplay(array) {
-    // generates 3 random items to display in Selection comp
     let result = [];
     for (let i = 3; i > 0; i--) {
       var item = Math.floor(Math.random() * array.length);
@@ -58,18 +100,17 @@ function App() {
    * @param {array}
    * @returns {array}
    */
-
   function splitToNChunks(array, n) {
     let chunkSize = Math.ceil(array.length / n);
     let result = [];
     for (let i = chunkSize; i > 0; i--) {
-      result.push(array.splice(0, Math.ceil(array.length / i)));
+      result.push(array.splice(0, paginationSize));
     }
     return result;
   }
 
   /**
-   *  generates 1 object from itemcode coupled with itemcode()
+   *  finds 1 object from recordset based on itemcode
    *
    * @param {string} a
    * @returns {array}
@@ -130,7 +171,7 @@ function App() {
   }, [sorting]);
 
   /**
-   *  removes item from cart by excluding item from new array and setting array to cart
+   *  removes item from cart by excluding item from new array and setting new array to cart
    *
    * @param {string} itemcode
    * @returns {array}
@@ -148,7 +189,6 @@ function App() {
    * @param {string} code
    * @returns {boolean}
    */
-
   function itemcode(code) {
     return function (element) {
       return element.itemcode === code;
@@ -196,7 +236,6 @@ function App() {
    *
    * @param {string} term
    */
-
   function sortitems(term) {
     setSorting(term);
   }
@@ -223,7 +262,6 @@ function App() {
    * @param {*} param
    * @returns {object}
    */
-
   const renderSwitch = (param) => {
     switch (param) {
       case -1:
@@ -275,10 +313,12 @@ function App() {
   return (
     <div>
       <header className="App-header">
-        {/* <div className="debugging">
-          DEBUGGING:sorting: {sorting} random:{randomIndex} page:{page}{" "}
-          pagination:{paginationSize} multipage:{multipage} 
-        </div> */}
+        {/* products.map((el) => {return el.design}) */}
+
+        <div className="debugging">
+          DEBUGGING:sorting: "{}" random:{randomIndex} page:{page} pagination:
+          {paginationSize} multipage:{multipage}
+        </div>
         <div className="header">
           <Navcart
             basket={basket}

@@ -38,13 +38,14 @@ function Shirt(props) {
     return (
 
 
-<Card border="dark" key={props.label.itemcode} className="shirt-hover"  onClick={()=>{props.action(props.label.itemcode, props.index)}} >
+<Card  key={props.label.itemcode} className="shirt-hover"  onClick={()=>{props.action(props.label.itemcode, props.index)}} >
       <Card.Img    style={{  objectFit: "cover", height : "100%", width: "100%"
- }} src={props.label.image} alt={props.label.design} />
+ }}   src={props.label.image? props.label.image : `https://placehold.co/200x200`} alt={props.label.design} />
       <Card.Body className="d-flex flex-column justify-content-end ">
         
         <ListGroup   variant="flush">
         <ListGroup.Item variant="info"><h4><span className="shirts-lg">{props.label.design}</span><span className="shirts-sm" >{props.label.formatPrice()}</span></h4></ListGroup.Item>
+        <ListGroup.Item variant="info"><h4>{props.label.itemcode}</h4></ListGroup.Item>
 
         <ListGroup.Item variant="info">        <Stack direction="horizontal" gap={1}>{props.label.size.map((option, index) => {
      

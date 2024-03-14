@@ -37,7 +37,7 @@ function Contact(props) {
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
         
-      <Button variant="primary" type="submit">
+      <Button disabled="true" variant="primary" type="submit">
         Submit
       </Button>
       </Form>

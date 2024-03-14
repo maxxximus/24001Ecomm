@@ -1,29 +1,43 @@
-// import { Link, Route, Switch } from "wouter";
-// import Home from "./Components/Home";
-// import Users from "./Components/Users";
 
-// const App1 = () => (
-//   <>
-//     <Link href="/users/1">Profile</Link>
 
-//     <Route path="/about">About Us</Route>
 
-//     {/* 
-//       Routes below are matched exclusively -
-//       the first matched route gets rendered
-//     */}
-//     <Switch>
-//       <Route path="/inbox" component={Users} />
-//       <Route path="/" component={Home} />
+import { getCountries } from './apiservice';
 
-//       <Route path="/users/:name">
-//         {(params) => <>Hello, {params.name}!</>}
-//       </Route>
+import { useCallback, useEffect, useState } from 'react';
 
-//       {/* Default route in a switch */}
-//       <Route>404: No such page!</Route>
-//     </Switch>
-//   </>
-// );
 
-// export {App1};
+
+function App1() {
+
+  const [countries, setCountries] = useState([]);
+
+  async function fetchCountries(){
+    const result = await getCountries(1);
+    setCountries(result.recordset);
+  }
+
+  useEffect(() => {
+    fetchCountries();
+  }, [])
+
+  return (
+    <div className="App"><h4>Hello</h4>
+
+      {countries.length > 0 && 
+        countries.map((country) => {
+          return(
+            <h1>{country.itemcode}</h1>
+          )
+        })
+      }
+        
+      
+       
+    </div>
+  );
+
+  
+}
+
+
+export {App1};
