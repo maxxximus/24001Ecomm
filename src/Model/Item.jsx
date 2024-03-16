@@ -1,5 +1,5 @@
 /**
- * Represents a book.
+ * Represents a t shirt.
  * @constructor
  * @param {string} design - The brand name
  * @param {array} size - array of  up to 5 sizes available ['S', 'M', 'L','XL', 'XXL']
