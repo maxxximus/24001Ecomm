@@ -44,13 +44,13 @@ function Shirt(props) {
       <Card.Body className="d-flex flex-column justify-content-end ">
         
         <ListGroup   variant="flush">
-        <ListGroup.Item variant="info"><h4><span className="shirts-lg">{props.label.design}</span><span className="shirts-sm" >{props.label.formatPrice()}</span></h4></ListGroup.Item>
-        <ListGroup.Item variant="info"><h4>{props.label.itemcode}</h4></ListGroup.Item>
+        <ListGroup.Item variant="secondary"><h4><span className="shirts-lg">{props.label.design}</span><span className="shirts-sm" >{props.label.formatPrice()}</span></h4></ListGroup.Item>
+        {/* <ListGroup.Item variant="info"><h4>{props.label.itemcode}</h4></ListGroup.Item> */}
 
-        <ListGroup.Item variant="info">        <Stack direction="horizontal" gap={1}>{props.label.size.map((option, index) => {
+        <ListGroup.Item variant="secondary">        <Stack direction="horizontal" gap={1}>{props.label.size.map((option, index) => {
      
             return  (
-            <Badge pill bg="primary">
+            <Badge key={option} pill bg="primary">
       {option}
             </Badge>
            )  })}

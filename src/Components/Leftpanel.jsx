@@ -76,7 +76,7 @@ function Leftpanel(props) {
         >
           <option value={""}>All brands</option>
           {unique_values.map((el) => {
-            return <option value={el}>{el}</option>;
+            return <option key={el} value={el}>{el}</option>;
           })}
         </Form.Select>
       </div>

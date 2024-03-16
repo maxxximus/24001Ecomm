@@ -1,7 +1,7 @@
 import "./css/App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { def } from "./Data/definitions";
 
 import Navcart from "./Components/Navcart";
@@ -9,23 +9,21 @@ import Leftpanel from "./Components/Leftpanel";
 import Fullbasket from "./Components/Fullbasket..jsx";
 import Contact from "./Components/Contact.jsx";
 import Login from "./Components/Login.jsx";
-import { getCountries } from "./apiservice.js";
+import { getProducts} from "./apiservice.js";
 import { resultcart } from "./localstorage.jsx";
 import Fullshirt from "./Components/Fullshirt.jsx";
 
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]); // used by api
 
-  const lenDataSet = def.length;
+  // const lenDataSet = def.length;
 
   const [shirts, setShirts] = useState(def); // holds entire dataset
   const [page, setPage] = useState(-1); // initial state is rendering Leftpanel
   const [multipage, setMultipage] = useState(1); // used with pagination to render correct slice
   const [paginationSize, setPaginationSize] = useState(10); // number of Shirts rendered by Leftpanel
-  let [slicedata, setSlicedata] = useState(
-    splitToNChunks([...def], paginationSize)[0]
-  );
+  let [slicedata, setSlicedata] = useState( splitToNChunks([...def], paginationSize)[0]);
 
   let [randomSelection, setRandomSelection] = useState(randomDisplay([...def]));// 3 random items to display
   // let [randomIndex, setRandomIndex] = useState(0);
@@ -55,7 +53,7 @@ function App() {
   // console.log("fffffffff",countries?countries:"hhhh");
 
   async function fetchCountries() {
-    const result = await getCountries(1);
+    const result = await getProducts(1);
     setProducts(result.recordset);
   }
 

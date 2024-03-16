@@ -134,6 +134,7 @@ width:100%;
 
 .full-basket {
   display: flex;
+  justify-content: flex-end;
   gap: 40px;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -257,10 +258,11 @@ width:100%;
 
 .shirts-sm{
 
-  font-size: 0.8em;
+  font-size: 0.7em;
   margin-left: 10px;
   width: 30px;
   text-align: right;
+
 }
 
 .shirts-lg{

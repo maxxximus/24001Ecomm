@@ -24,7 +24,7 @@ function Footer() {
 
 <div className='footer'>
 <div class="social-container">
-      <h5 >Follow us on social media...</h5>
+      <h5 >Follow Mr.Tee on social media...</h5>
       <a href="#home"
         className="youtube social">
         <FontAwesomeIcon icon={faYoutube} size="2x" />

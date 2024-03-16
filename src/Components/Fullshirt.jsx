@@ -136,10 +136,10 @@ else{
 
 
       {option === size ?
-     <><Button size="sm" variant="warning" value={option} onClick={(e) => {setSize(e.target.value)}}>{option}</Button>
+     <><Button size="sm" variant="warning" key={option} value={option} onClick={(e) => {setSize(e.target.value)}}>{option}</Button>
     </>
       :
-      <><Button  size="sm"  variant="success" value={option} onClick={(e) => {setSize(e.target.value)}}>{option}</Button>
+      <><Button  size="sm"  variant="success" key={option} value={option} onClick={(e) => {setSize(e.target.value)}}>{option}</Button>
       </>
       }
   
@@ -184,10 +184,10 @@ props.cartItems === 1 ?`You have ${props.cartItems} item in your basket:` :
 <Button variant="outline-secondary" size="lg"  >Continue shopping</Button></div> */}
 <div style={{height:"200px", marginTop:"50px"}}>
       <Tabs
-      tabClassName='text-dark'
+      className='text-dark mb-3'
       defaultActiveKey="contact"
       id="uncontrolled-tab-example"
-      className="mb-3"
+   
     >
       <Tab eventKey="Details" title="Details">
       {props.label.details}

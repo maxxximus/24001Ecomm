@@ -1,9 +1,9 @@
 const apiURL = "http://localhost:3002"
 
-export async function getCountries(countryCode) {
+export async function getProducts(productid) {
 
     const response = await fetch(
-        apiURL + "/item/" + countryCode
+        apiURL + "/item/" + productid
     );
     
     return response.json(); 

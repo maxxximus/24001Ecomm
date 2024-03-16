@@ -1,7 +1,7 @@
 
 
 
-import { getCountries } from './apiservice';
+import { getProducts } from './apiservice';
 
 import { useCallback, useEffect, useState } from 'react';
 
@@ -12,7 +12,7 @@ function App1() {
   const [countries, setCountries] = useState([]);
 
   async function fetchCountries(){
-    const result = await getCountries(1);
+    const result = await getProducts(1);
     setCountries(result.recordset);
   }
 

@@ -22,7 +22,7 @@ export default function Selection(props) {
           return (
             <Shirt
               label={option}
-              key={option.itemcode}
+              key={option.itemcode+index}
               ind={-4}
               index={index}
           action={props.action}

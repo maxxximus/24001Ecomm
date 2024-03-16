@@ -52,7 +52,7 @@ function Fullbasket(props) {
         <tbody>
           {props.basket.map((option, index) => {
             return (
-              <tr key={option.itemcode}>
+              <tr key={option.itemcode+"1"}>
                 <td>{index + 1} </td>
                 <td>
                   {" "}
