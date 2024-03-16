@@ -1,14 +1,13 @@
 import Basket from "./Basket"
 import '../css/App.css'
-import Pagination from 'react-bootstrap/Pagination';
+
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import tshirt from '../tshirt2.png'
+
 import {HouseFill, EnvelopeFill, DoorOpenFill,BagCheckFill,Link45deg } from "react-bootstrap-icons/dist";
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
+
 
 
 
@@ -45,7 +44,7 @@ function Navcart(props){
             <Nav.Link onClick={()=>{props.action(-1)}}  className='ms-3' href="#home"><HouseFill className='ms-2' title={"Home"} size={26}  /><p>Home</p></Nav.Link>
             <Nav.Link onClick={()=>{props.action(-2)}}  className='ms-3' href="#cart"><BagCheckFill className='ms-2'  title={"Basket"}size={26} /><p>Basket</p></Nav.Link>
             <Nav.Link onClick={()=>{props.action(-3)}}  className='ms-3' href="#contact"> <EnvelopeFill  className='ms-3'title={"Contact"} size={26}/><p>Contact</p></Nav.Link>
-            <Nav.Link onClick={()=>{props.action(-3)}}  className='ms-3 me-3' href="#login"><DoorOpenFill className='ms-1' title={"Login"} size={26}/><p>Login</p></Nav.Link>
+            <Nav.Link onClick={()=>{props.action(-4)}}  className='ms-3 me-3' href="#login"><DoorOpenFill className='ms-2' title={"Login"} size={26}/><p>Login</p></Nav.Link>
             <NavDropdown className='mt-4'  title="Links" id="basic-nav-dropdown">  
             
               <NavDropdown.Item href="#info">
@@ -53,7 +52,7 @@ function Navcart(props){
               </NavDropdown.Item>
               <NavDropdown.Item onClick={()=>{props.action(-3)}}href="#contact">Contact us</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#login">
+              <NavDropdown.Item onClick={()=>{props.action(-4)}} href="#login">
                 Login
               </NavDropdown.Item>
             </NavDropdown>

@@ -1,16 +1,17 @@
 import { useState, useEffect} from 'react';
-import { Stack, Badge, Alert, Button, Nav, Accordion, Tabs, Tab } from "react-bootstrap";
+import { Stack, Badge, Alert, Button, Nav, Tabs, Tab } from "react-bootstrap";
 
 
 import '../css/App.css'
 import BasketModel from '../Model/BasketModel'
-import gg from '../tshirt.png'
+
 
 import Carousel from 'react-bootstrap/Carousel';
 
 import Selection from './Selection';
 
-import ListGroup from 'react-bootstrap/ListGroup';
+
+import Footer from './Footer';
 
 
 
@@ -39,9 +40,13 @@ const [loading, setLoading] = useState(false); // used by add to cart button
 
     window.scrollTo(0, 0)  // ensures re-render scrolls to top of page
 
-
+/**
+   *  simulates neteork request with a delay of 1 second -
+   * if loading is not null then loads button with loading... text
+   *
+   */
     function simulateNetworkRequest() {
-      return new Promise((resolve) => setTimeout(resolve, 1000)); // adds loading text to cart button
+      return new Promise((resolve) => setTimeout(resolve, 1000)); 
     }
 
     if (loading) {
@@ -56,6 +61,10 @@ const [loading, setLoading] = useState(false); // used by add to cart button
   const handleClick = () => setLoading(true);
 
 
+
+  /**
+   *  adds to basket only if size is not null else sets setNosubmit with message
+   */
 const submitCart = () =>{ 
   if (size !== "") 
   { props.action( new BasketModel(
@@ -72,7 +81,7 @@ else{
 
 
     return (
-
+<>
       <div id="right">
     
 
@@ -126,7 +135,7 @@ else{
       <>
 
 
-      {option == size ?
+      {option === size ?
      <><Button size="sm" variant="warning" value={option} onClick={(e) => {setSize(e.target.value)}}>{option}</Button>
     </>
       :
@@ -164,8 +173,8 @@ else{
 {loading && size  ? 'Adding…' : 'Add to Basket'}</Button></div>
 <p className='warning'>{nosubmit}</p>
 
-<p className='success' onClick={()=> {props.setPage(-2)}} >{props.cartItems == 0 ? "" : 
-props.cartItems == 1 ?`You have ${props.cartItems} item in your basket:` : 
+<p className='success' onClick={()=> {props.setPage(-2)}} >{props.cartItems === 0 ? "" : 
+props.cartItems === 1 ?`You have ${props.cartItems} item in your basket:` : 
 `You have ${props.cartItems} items in your basket:`}</p>
 
 
@@ -215,6 +224,7 @@ props.cartItems == 1 ?`You have ${props.cartItems} item in your basket:` :
 
 
 </div>
+<Footer/></>
     );
     
 }

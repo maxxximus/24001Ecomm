@@ -1,9 +1,9 @@
 import '../css/App.css'
-import BasketModel from '../Model/BasketModel';
+
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+
 import ListGroup from 'react-bootstrap/ListGroup';
-import Image from 'react-bootstrap/Image';
+
 import Badge from 'react-bootstrap/Badge';
 import Stack from 'react-bootstrap/Stack';
 

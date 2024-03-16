@@ -1,7 +1,6 @@
 import React from 'react'
 import Shirt from "./Shirt";
-import { def } from "../Data/definitions";
-import { useEffect, useState, } from "react";
+
 import '../css/App.css'
 
 

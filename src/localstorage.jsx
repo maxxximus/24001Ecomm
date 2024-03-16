@@ -2,13 +2,15 @@ import BasketModel from './Model/BasketModel'
 
 const cartLocalStorage = JSON.parse(localStorage.getItem("basket") || "[]")
 
-let resultcart =[]
 
-function getFromLocalStorage() {
-cartLocalStorage.map((el) => {
-let x = new BasketModel(el.design, el.size, el.itemcode, el.price,el.quantity,el.image)
-resultcart.push(x)
+  /**
+   *  if local storage has items map over array and push to new array using 
+   * Basketmodel
+   *
+   */
 
-})}
-getFromLocalStorage()
+
+const resultcart = cartLocalStorage
+            .map((el) => new BasketModel(el.design, el.size, el.itemcode, el.price,el.quantity,el.image));
+
 export {resultcart}

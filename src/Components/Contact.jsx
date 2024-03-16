@@ -1,33 +1,23 @@
 import '../css/App.css'
 import {Form,Button} from 'react-bootstrap/';
+import Footer from './Footer';
 
 
 
 
-function Contact(props) {
+function Contact() {
 
     // parent - App.js
     
-    // class Item {
-    //   constructor(design, size, image, itemcode, price) {
-    //     this.design = design;
-    //     this.size = size;
-    //     this.image = image;
-    //     this.itemcode = itemcode;
-    //     this.price = price
-    //   }
-    // }
-    
-    // export default Item;
-    
-  
+
   
 
 
     return (
-
-
-        <Form style={{width: "50%", margin:"100px auto"}}>
+<>
+<div className='form-style'> 
+<h5>Contact us</h5>
+        <Form style={{width: "94%", margin:"50px auto"}}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="name@example.com" />
@@ -41,7 +31,8 @@ function Contact(props) {
         Submit
       </Button>
       </Form>
-
+    
+</div>  < Footer /></>
     );
 
 

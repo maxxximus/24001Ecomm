@@ -1,8 +1,9 @@
-import Basket from "./Basket";
+
 import { Table, Button } from "react-bootstrap";
 import "../css/App.css";
-import Selection from "./Selection";
+
 import { Trash } from "react-bootstrap-icons/dist";
+import Footer from "./Footer";
 
 function Fullbasket(props) {
   // parent - App.js
@@ -25,11 +26,11 @@ function Fullbasket(props) {
   // export default Item;
 
   return (
-
+<>
 
     
     <div className="full-basket">
-
+{props.cartItems > 0 && 
       <Table striped={true} style={{width:"60%", marginTop:"50px" }}  hover >
       <thead>
       <tr>
@@ -55,7 +56,7 @@ function Fullbasket(props) {
                 <td>{index + 1} </td>
                 <td>
                   {" "}
-                  <img  className="basket-image-sm" src={option.image} />
+                  <img alt={option.design} className="basket-image-sm" src={option.image} />
                 </td>
                 <td>{option.design} </td>
                 <td>{option.itemcode} </td>
@@ -90,7 +91,7 @@ function Fullbasket(props) {
           </tr>
         </tbody>
       </Table>
-
+}
       <Table    striped style={{ height: "300px", width:"30%", marginTop:"50px" }}>
         <thead>
           <tr>
@@ -135,10 +136,11 @@ function Fullbasket(props) {
 
 
 
-      {/* <Selection callback={props.callback}/> */}
+   
     </div>
+    <Footer /> </>
 
-    //
+  
   );
 }
 

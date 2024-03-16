@@ -1,5 +1,4 @@
 import "./css/App.css";
-
 import "bootstrap/dist/css/bootstrap.css";
 
 import { useEffect, useState, useCallback } from "react";
@@ -9,10 +8,11 @@ import Navcart from "./Components/Navcart";
 import Leftpanel from "./Components/Leftpanel";
 import Fullbasket from "./Components/Fullbasket..jsx";
 import Contact from "./Components/Contact.jsx";
+import Login from "./Components/Login.jsx";
 import { getCountries } from "./apiservice.js";
 import { resultcart } from "./localstorage.jsx";
 import Fullshirt from "./Components/Fullshirt.jsx";
-import BasketModel from "./Model/BasketModel.jsx";
+
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -27,8 +27,8 @@ function App() {
     splitToNChunks([...def], paginationSize)[0]
   );
 
-  let [randomSelection, setRandomSelection] = useState(randomDisplay([...def]));
-  let [randomIndex, setRandomIndex] = useState(0);
+  let [randomSelection, setRandomSelection] = useState(randomDisplay([...def]));// 3 random items to display
+  // let [randomIndex, setRandomIndex] = useState(0);
   let [sorting, setSorting] = useState("");
   let [sortedArray, setSortedArray] = useState([]);
   // let [selectedItem, setSelectedItem] = useState([]);
@@ -63,7 +63,7 @@ function App() {
     fetchCountries();
   }, []);
 
-  console.log("aaaaaaa", products);
+
 
   useEffect(() => {
     localStorage.setItem("basket", JSON.stringify(basket));
@@ -154,19 +154,13 @@ function App() {
      * @param {string} term
      * @returns {array}
      */
-
     function sortArray(array, term) {
-      let result = [];
-      array.map((option, index) => {
-        if (option.design === term) {
-          result.push(option);
+      let result = array.filter((option, index) => option.design === term);
+      return result
         }
-      });
-
-      return result;
-    }
 
     const newsort = sortArray(shirts, sorting);
+
     setSortedArray(newsort);
   }, [sorting]);
 
@@ -293,6 +287,10 @@ function App() {
       case -3:
         return <Contact />;
 
+      case -4:
+          return <Login />;
+  
+
       default:
         return (
           <Fullshirt
@@ -329,6 +327,7 @@ function App() {
         </div>
 
         {renderSwitch(page)}
+     
       </header>
     </div>
   );

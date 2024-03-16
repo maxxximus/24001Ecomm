@@ -1,4 +1,4 @@
-import Basket from "./Basket";
+
 import "../css/App.css";
 import Shirt from "./Shirt";
 import { Pagination, Form } from "react-bootstrap";
@@ -36,13 +36,11 @@ function Leftpanel(props) {
   }
 
   /**
-   *  generates array of unique design fields of recordset -used by sorting drop down
+   *  generates array of unique design/brand fields of recordset -used by sorting drop down
    *
    */
-  let result = [];
-  props.shirts.map((option, index) => {
-    result.push(option.design);
-  });
+
+  let result = props.shirts.map((option, index) =>  option.design);
 
   let unique_values = [...new Set(result)];
 

@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+
 import '../css/App.css'
 
 import {Cart, CartCheckFill} from "react-bootstrap-icons/dist";
-import Button from "react-bootstrap/Button";
+
 
 
 function Basket(props) {
@@ -31,22 +31,6 @@ function Basket(props) {
     //     }
     //   }
       
-    
-
-
-
-
-      
-//   useEffect(() => {
-
-
-//         setcartTotal(cartTotal + option.totalPrice())
-        
-
- 
-//   }, [cartTotal]);
-
-
 
 
 
@@ -61,7 +45,7 @@ function Basket(props) {
         <div onClick={()=>{props.action2(-2)}}  className='basket'>
 
 
-        { props.cartItems  == 0 ?  
+        { props.cartItems  === 0 ?  
     <Cart title={"Basket empty"} size={40} style={{marginTop:"14px"}} /> :   
       <CartCheckFill title={"Items in Basket"} style={{marginTop:"14px"}}  size={40} />}
 
@@ -74,7 +58,7 @@ function Basket(props) {
 
          return (
          <>
-         <li><img className='nav-image30' src={option.image} /> ({option.size}) x {option.quantity}: £{option.totalPrice()} </li>
+         <li><img alt='item in basket' className='nav-image30' src={option.image} /> ({option.size}) x {option.quantity}: £{option.totalPrice()} </li>
          {/* <span >Totalpooo: {option.totalPrice()}   </span> */}
          {/* <span >items: {option.totalItems()}   </span> */}
          
@@ -91,12 +75,6 @@ function Basket(props) {
  </>
     );
 
-
-
-
-
-    
- 
       
     }
     
