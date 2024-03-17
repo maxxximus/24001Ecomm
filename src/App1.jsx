@@ -12,8 +12,8 @@ function App1() {
   const [countries, setCountries] = useState([]);
 
   async function fetchCountries(){
-    const result = await getProducts(1);
-    setCountries(result.recordset);
+    const result = await getProducts(2);
+    setCountries(result);
   }
 
   useEffect(() => {
@@ -25,9 +25,11 @@ function App1() {
 
       {countries.length > 0 && 
         countries.map((country) => {
-          return(
-            <h1>{country.itemcode}</h1>
-          )
+          return(<>
+            <h1>{country.design}</h1>
+            <img src={country.image} />
+            <h1>{country.price}</h1>
+        </>  )
         })
       }
         

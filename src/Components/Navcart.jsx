@@ -16,11 +16,6 @@ import {HouseFill, EnvelopeFill, DoorOpenFill,BagCheckFill,Link45deg } from "rea
 function Navcart(props){
 
 
-  const placement = "top"
-
-
-
-
 
     return(
   <>

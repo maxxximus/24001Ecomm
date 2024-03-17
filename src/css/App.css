@@ -58,11 +58,13 @@ a.social:hover {
 .basket li {
   font-size: 0.9em;
   margin: 0;
-  background-color: rgb(0, 255, 140);
+
 
   height: 40px;
   padding: 4px;
   width: 170px;
+  border: 3px solid  rgb(25, 135, 84);
+  border-radius: 2px;
 }
 .basket {
   background-color: rgb(249, 249, 250);
@@ -71,6 +73,9 @@ a.social:hover {
   width: 100%;
 }
 .basket:hover {
+  cursor: pointer;
+}
+.basket-image-sm:hover{
   cursor: pointer;
 }
 
@@ -188,7 +193,7 @@ width:100%;
 }
 
 .nav-image30 {
-  width: 26px;
+  height: 27px;
 }
 
 .nav-pagin {
@@ -236,8 +241,8 @@ width:100%;
 }
 
 .success {
-  background-color: rgb(0, 255, 140);
-  color: black;
+  background-color: rgb(25, 135, 84);
+  color: rgb(248, 245, 245);
   border-radius: 5px;
   font-weight: 400;
 }
@@ -401,6 +406,21 @@ width:100%;
 
 /* mobile friendly -------------------------------------- */
 @media (max-width: 800px) {
+  .shirts-sm{
+
+    font-size: 0.9em;
+    margin-left: 10px;
+    width: 30px;
+    text-align: right;
+  
+  
+  }
+  
+  .shirts-lg{
+
+  
+    font-size: 1.4em;
+  }
   .no-mobile {
     display: none;
   }

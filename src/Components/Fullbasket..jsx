@@ -55,8 +55,8 @@ function Fullbasket(props) {
               <tr key={option.itemcode+"1"}>
                 <td>{index + 1} </td>
                 <td>
-                  {" "}
-                  <img alt={option.design} className="basket-image-sm" src={option.image} />
+ 
+                  <img onClick={()=>{props.callback(option.itemcode.replace(`${option.size}`, ''))}} alt={option.design} className="basket-image-sm" src={option.image} />
                 </td>
                 <td>{option.design} </td>
                 <td>{option.itemcode} </td>

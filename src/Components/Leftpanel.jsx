@@ -20,6 +20,10 @@ function Leftpanel(props) {
 
   const pages = Math.ceil(lengthdata / pagein);
 
+  /**
+   *  generates array of pagination numbers for navigation based on size of dataset
+   *
+   */
   let items = [];
   for (let number = 1; number <= pages; number++) {
     items.push(
@@ -39,8 +43,7 @@ function Leftpanel(props) {
    *  generates array of unique design/brand fields of recordset -used by sorting drop down
    *
    */
-
-  let result = props.shirts.map((option, index) =>  option.design);
+ let result = props.shirts.map((option, index) =>  option.design);
 
   let unique_values = [...new Set(result)];
 
