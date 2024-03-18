@@ -58,7 +58,7 @@ function Basket(props) {
 
          return (
          <>
-         <li key={option.itemcode+index}><img alt='item in basket' className='nav-image30' src={option.image} /> ({option.size}) x {option.quantity}: £{option.totalPrice()} </li>
+         <li key={option.itemcode+index}><img alt='item in basket' className='nav-image30' src={option.image ? option.image: `https://placehold.co/30x30`} /> ({option.size}) x {option.quantity}: £{option.totalPrice()} </li>
          {/* <span >Totalpooo: {option.totalPrice()}   </span> */}
          {/* <span >items: {option.totalItems()}   </span> */}
          

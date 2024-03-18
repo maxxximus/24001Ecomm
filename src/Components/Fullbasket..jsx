@@ -1,5 +1,5 @@
 
-import { Table, Button } from "react-bootstrap";
+import { Table} from "react-bootstrap";
 import "../css/App.css";
 
 import { Trash } from "react-bootstrap-icons/dist";
@@ -56,7 +56,7 @@ function Fullbasket(props) {
                 <td>{index + 1} </td>
                 <td>
  
-                  <img onClick={()=>{props.callback(option.itemcode.replace(`${option.size}`, ''))}} alt={option.design} className="basket-image-sm" src={option.image} />
+                  <img onClick={()=>{props.callback(option.itemcode.replace(`${option.size}`, ''))}} alt={option.design} className="basket-image-sm" src={option.image ? option.image:`https://placehold.co/60x60`} />
                 </td>
                 <td>{option.design} </td>
                 <td>{option.itemcode} </td>
@@ -67,6 +67,7 @@ function Fullbasket(props) {
 
                 <td>
                   <Trash
+                  alt="Remove from basket"
                     className="bin-hover"
                     onClick={() => {
                       props.removeFromCart(option.itemcode);

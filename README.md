@@ -3,7 +3,7 @@
 
 
 ## Demo
-You can view the working demo here: [https://24001-ecomm.vercel.app/](https://24001-ecomm.vercel.app/)
+You can view a working demo here: [https://24001-ecomm.vercel.app/](https://24001-ecomm.vercel.app/)
 
 ## Features
 - SPA using conditional rendering (no routing)
